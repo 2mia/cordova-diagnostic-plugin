@@ -309,4 +309,10 @@ static NSString*const REMOTE_NOTIFICATIONS_BADGE = @"badge";
     });
 };
 
+#pragma mark -  Settings
+- (void) switchToNotificationsSettings: (CDVInvokedUrlCommand*)command
+{
+    [diagnostic switchToSettings:command];
+}
+
 @end

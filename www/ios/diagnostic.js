@@ -611,6 +611,14 @@ var Diagnostic = (function(){
         }
     };
 
+    Diagnostic.switchToNotificationsSettings = function(successCallback, errorCallback) {
+        if(cordova.plugins.diagnostic.notifications){
+            cordova.plugins.diagnostic.notifications.switchToNotificationsSettings.apply(this, arguments);
+        }else{
+            throw "Diagnostic Notifications module is not installed";
+        }
+    };
+
     /***************************
      * Microphone / Record Audio
      ***************************/
