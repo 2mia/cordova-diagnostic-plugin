@@ -34,6 +34,10 @@ import org.json.JSONException;
 
 import android.support.v4.app.NotificationManagerCompat;
 
+import android.content.Intent;
+import android.provider.Settings;
+import android.net.Uri;
+
 /**
  * Diagnostic plugin implementation for Android
  */
@@ -107,6 +111,9 @@ public class Diagnostic_Notifications extends CordovaPlugin{
         try {
             if(action.equals("isRemoteNotificationsEnabled")) {
                 callbackContext.success(isRemoteNotificationsEnabled() ? 1 : 0);
+            } else if (action.equals("switchToNotificationsSettings")){
+                switchToNotificationsSettings();
+                callbackContext.success();
             } else {
                 diagnostic.handleError("Invalid action");
                 return false;
@@ -155,3 +162,4 @@ public class Diagnostic_Notifications extends CordovaPlugin{
 
 
 }
+
